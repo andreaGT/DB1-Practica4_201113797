@@ -25,6 +25,14 @@ h1 {
     font-size: 30px;
 }
 
+h2 {
+    color: cyan;
+    background-color:black;
+  text-align: center;
+    font-family: "Arial";
+    font-size: 30px;
+}
+
 p {
     color: cyan;
     font-family: "Arial";

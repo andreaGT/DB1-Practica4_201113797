@@ -8,35 +8,36 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var abc = require('./routes/abc');
-/*
+var reservacion = require('./routes/reservacion');
+var reporte = require('./routes/reporte');
+var help = require('./routes/help');
+
 var pg = require('pg');
 
 var conString = "pg://postgres:123@localhost:5432/Practica4_db1";
 
-var client = new pg.client(conString);
+var client = new pg.Client(conString);
 
 client.connect();
-client.query("INSERT INTO \"TIPO_BUS\"(NOMBRE, DESCRIPCION) values('economico', 'buses economicos')");
+
+
 /*
+client.query("SELECT * from \"TIPO_BUS\"");
+console.log(result.rows[0].NOMBRE);
+client.end();
+
 client.connect();
 client.query("SELECT * FROM mi_tabla", function (error, result){
     console.log(result.rows[0].campo_tabla);
 }
 console.log(error);
-);
+);*/
 
-// client.query("CREATE TABLE IF NOT EXISTS emps(firstname varchar(64), lastname varchar(64))");
+ //client.query("CREATE TABLE IF NOT EXISTS emps(firstname varchar(64), lastname varchar(64))");
 
-var query = client.query("SELECT firstname, lastname FROM emps ORDER BY lastname, firstname");
-query.on("row", function (row, result) {
-    result.addRow(row);
-});
-query.on("end", function (result) {
-    console.log(JSON.stringify(result.rows, null, "    "));
-    client.end();
-});
+
 //Realizamos una consulta de prueba
-client.query("SELECT COUNT(*) FROM mitabla", function(err, result) {
+/*client.query("SELECT * from \"TIPO_BUS\"", function(err, result) {
     if( result == undefined ){
         //Significa que no hay resultados =(
         console.log("No hay ni mamis");
@@ -65,7 +66,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/ABC', abc);
-
+app.use('/reservacion', reservacion);
+app.use('/reporte', reporte);
+app.use('/help', help);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -97,5 +100,13 @@ app.use(function(err, req, res, next) {
   });
 });
 
+var query = client.query("SELECT * FROM \"TIPO_BUS\"");
+query.on("row", function (row, result) {
+    result.addRow(row);
+});
+query.on("end", function (result) {
+    console.log(JSON.stringify(result.rows, null, "    "));
+    client.end();
+});
 
 module.exports = app;
