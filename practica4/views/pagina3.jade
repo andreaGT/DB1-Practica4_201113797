@@ -1,0 +1,24 @@
+doctype
+html
+  head
+    SO-P3
+    script(src='/javascripts/socket.io.js')
+    script(src='/javascripts/pagina3.js')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/pagina3.css')
+  body
+    header
+      h1 Pagina 3
+      p
+        | <a href="/">index</a> |  
+        | <a href="prueba">prueba</a> | 
+        | <a href="#">pagina2</a> |  
+        | <a href="pagina3">pagina3</a> |  
+    div
+      input#btnIniciar(type='submit', value='Submit', onClick='getDirs();')
+    #wrapper
+      #espera
+      #listo
+      #ejecu 
+    footer
+      p 
+        |Jose Javier Cardona 200910523
