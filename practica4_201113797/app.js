@@ -11,19 +11,12 @@ var abc = require('./routes/abc');
 /*
 var pg = require('pg');
 
-var dbparams = {
-    host : 'localhost',
-    user : 'postgres',
-    password : '123',
-    database : 'Practica4_db1',
-};
-
 var conString = "pg://postgres:123@localhost:5432/Practica4_db1";
 
 var client = new pg.client(conString);
 
 client.connect();
-client.query("INSERT INTO \"TIPO_BUS\"(NOMBRE, DESCRIPCION) values('economico', 'buses economicos')", ['Ronald', 'McDonald']);
+client.query("INSERT INTO \"TIPO_BUS\"(NOMBRE, DESCRIPCION) values('economico', 'buses economicos')");
 /*
 client.connect();
 client.query("SELECT * FROM mi_tabla", function (error, result){
