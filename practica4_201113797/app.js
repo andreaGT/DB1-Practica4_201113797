@@ -35,7 +35,18 @@ query.on("end", function (result) {
     console.log(JSON.stringify(result.rows, null, "    "));
     client.end();
 });
-
+//Realizamos una consulta de prueba
+client.query("SELECT COUNT(*) FROM mitabla", function(err, result) {
+    if( result == undefined ){
+        //Significa que no hay resultados =(
+        console.log("No hay ni mamis");
+    }else{
+        //Mostramos los resultados =) así como vengan
+        console.log(result);
+    }
+    // Se termina la conexión a Posgresql
+    pg.end();
+});
 */
 var app = express();
 
