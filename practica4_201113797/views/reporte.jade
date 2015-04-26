@@ -32,12 +32,12 @@ html
 
       
       input(type="text" id="prueba" name="prueba" value=respuesta)
-      input.boton_azul_201113797(type="submit" id="boton" value="Tickets", Onclick="pontar()")
-      label(id="lb1", width:"10px")
+      input.boton_azul_201113797(type="submit" id="boton" value="Tickets", Onclick="actionget()")
+      label(id="lb1", width="10px")
     footer by Andrea 
   
   script.
-     function pontar(){
+     function actionget(){
         var text1 = document.getElementById("prueba").value;
         var vector=text1.split(",");
         var myTable="<table><tr><td style='width: 100px; color: cyan;'>ID FACTURA </td>";

@@ -31,14 +31,15 @@ html
     #login_201113797
 
       h2 Altas de Rutas
-      p.title_201113797 ingresos
-      | Origen: 
-      input(id='origen_ingreso', type='text', name='fname')
-      br
-      | Destino: 
-      input(type='text', name='lname')
-      br
-      input.boton_azul_201113797(id='ingreso', type='submit', value='Agregar', onclick="href='pagina2'")
+      form(action="abc", method="POST")
+        p.title_201113797 ingresos
+        | Origen: 
+        input(type='text', name='fname')
+        br
+        | Destino: 
+        input(type='text', name='lname')
+        br
+        input.boton_azul_201113797(id='ingreso', type='submit', value='Agregar')
 
       h2 Bajas de Rutas
       p.title_201113797 recorte
