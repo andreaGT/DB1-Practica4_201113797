@@ -14,7 +14,10 @@ block content
       | Password: 
       input(type='text', name='lname')
       br
-      input(type='submit', value='Login', OnClick="href='abc'")
+      input.boton_azul_201113797(type="submit" id="boton" value="Login", Onclick="actionget()")
     footer by Andrea 
-    
+  script.
+     function actionget(){
+      location.href="/abc";
+     }
 

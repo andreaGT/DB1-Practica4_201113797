@@ -30,7 +30,45 @@ html
   body
     #login_201113797
 
-      h2= prob
+      
+      input(type="text" id="prueba" name="prueba" value=respuesta)
+      input.boton_azul_201113797(type="submit" id="boton" value="Tickets", Onclick="pontar()")
+      label(id="lb1", width:"10px")
     footer by Andrea 
-    
+  
+  script.
+     function pontar(){
+        var text1 = document.getElementById("prueba").value;
+        var vector=text1.split(",");
+        var myTable="<table><tr><td style='width: 100px; color: cyan;'>ID FACTURA </td>";
+        myTable+= "<td style='width: 100px; color: cyan; text-align: center;'>PASAJERO</td>";
+        myTable+= "<td style='width: 100px; color: cyan; text-align: center;'>FECHA</td>";
+        myTable+= "<td style='width: 100px; color: cyan; text-align: center;'>ORIGEN_VIAJE</td>";
+        myTable+= "<td style='width: 100px; color: cyan; text-align: center;'>DESTINO_VIAJE</td>";
+        myTable+= "<td style='width: 100px; color: cyan; text-align: center;'>COSTO</td></tr>"; 
+        try{
+          for(var i=0;i<vector.length-1;i++){
+            var n = vector[i].split(":");
+            var m = vector[i+1].split(":");
+            var j = vector[i+2].split(":");
+            var k = vector[i+3].split(":");
+            var l = vector[i+4].split(":");
+            var h = vector[i+5].split(":");
+            myTable+="<tr><td style='width: 50px;color: yellow;'>" + n[1] + " </td>";
+                myTable+="<td style='width: 100px;color: yellow; text-align: center;'>" + m[1] + "</td>";
+                myTable+="<td style='width: 100px;color: yellow; text-align: center;'>" + j[1]+ "</td>";
+                myTable+="<td style='width: 100px;color: yellow; text-align: center;'>" + k[1]+ "</td>";
+                myTable+="<td style='width: 100px;color: yellow; text-align: center;'>" + l[1]+ "</td>";
+                myTable+="<td style='width: 100px;color: yellow; text-align: center;'>" + h[1] + "</td>";
+                i=i+5;
+                myTable+="<td style='width: 100px;color: yellow; text-align: center;'></td></tr>";
+            } 
+          }catch(e){
+
+          }  
+            
+        myTable+="</table>";
+        var t = document.getElementById('lb1');
+        t.innerHTML = myTable; 
+      } 
 
