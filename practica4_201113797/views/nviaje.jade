@@ -33,27 +33,32 @@ html
       nav
       ul.menu_201113797
         li
-          a(href="/abc") Altas
+          a(href="/nruta") Nueva Ruta   
 
         li
-          a(href="/bca") bajas
+          a(href="/nviaje") Nueva Viaje
+         
+        li
+          a(href="/nviajes") Asignar Viajes
 
         li
-          a(href="/cba") medias
+          a(href="/nbuses") Asignar Buses
 
       br
-      h2 Altas de Buses
-      form(action="abc", method="POST")
-        p.title_201113797 ingresos
-        | Tipo de Bus: 
+      
+      form(action="nviaje", method="POST")
+        br
+        br
+        p.title_201113797 Nuevo Viaje
+        | Origen: 
         input(type='text', name='fname')
         br
         br
-        | Conductor: 
+        | Destino: 
         input(type='text', name='lname')
         br
         br
-        | Capacidad: 
+        | Kms: 
         input(type='text', name='cname')
         br
         br

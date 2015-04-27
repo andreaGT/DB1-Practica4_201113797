@@ -42,23 +42,30 @@ html
           a(href="/cba") medias
 
       br
-      h2 Altas de Buses
-      form(action="abc", method="POST")
-        p.title_201113797 ingresos
-        | Tipo de Bus: 
-        input(type='text', name='fname')
+
+      h2 Medias de Buses
+      form(action="cba", method="POST")
+        p.title_201113797 modificacion
+        | id Bus: 
+        input(type='text', name='fname1')
+        br
+        br
+        | Tipo Bus: 
+        input(type='text', name='lt1')
         br
         br
         | Conductor: 
-        input(type='text', name='lname')
+        input(type='text', name='lname1')
         br
         br
         | Capacidad: 
-        input(type='text', name='cname')
+        input(type='text', name='cname1')
         br
         br
-        input.boton_azul_201113797( type='submit',name='ingreso', value='Agregar')
-
+        input.boton_azul_201113797(type='submit',name='modificar', value='Guardar')
+        br
+    
+    
     script.
       $("#ingreso").click(function(){});
 

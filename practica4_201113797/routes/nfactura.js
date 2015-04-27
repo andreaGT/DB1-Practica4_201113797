@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('reservacion', { title: 'Bus Velocity' });
+  res.render('nfactura', { title: 'Bus Velocity' });
 });
 
 router.post('/', function(req, res) {
@@ -14,10 +14,10 @@ router.post('/', function(req, res) {
     var data = {text: req.body.fname, complete: req.body.lname, capacidad:req.body.cname,text1: req.body.fname1, complete1: req.body.lname1, capacidad1:req.body.cname1, elim: req.body.idel, id: req.body.lt1};
     // Get a Postgres client from the connection pool
     var pg = require('pg');
-	var conString = "pg://postgres:123@localhost:5432/Practica4_db1";
+  var conString = "pg://postgres:123@localhost:5432/Practica4_db1";
     pg.connect(conString, function(err, client, done) {
         
-       client.query("INSERT INTO \"RESERVACION\"(\"PASAJERO_idPASAJERO\",\"FECHA\") values("+data.text+", '"+data.complete+"')", 
+       client.query("INSERT INTO \"FACTURA\"(\"PASAJERO_idPASAJERO\",\"FECHA\",\"TOTAL\") values("+data.text+", '"+data.complete+"',"+data.capacidad+")", 
             function(err, result) {
                 if (err) {
                     console.log(err+"1");
@@ -27,8 +27,8 @@ router.post('/', function(req, res) {
                     client.end();
             });
     
-	});
-	res.render('reservacion', { title: 'Bus Velocity' });
+  });
+  res.render('nfactura', { title: 'Bus Velocity' });
 });
 
 module.exports = router;

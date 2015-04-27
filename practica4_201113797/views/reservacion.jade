@@ -12,7 +12,8 @@ html
 
         li
           a(href="/reservacion") Reservacion
-
+        li
+          a(href="/nruta") Ruta
         li
           a(href="/reporte") Reporte
 
@@ -29,33 +30,33 @@ html
   head
   body
     #login_201113797
+      nav
+      ul.menu_201113797
+        li
+          a(href="/reservacion") Reservacion  de ticket
+        li
+          a(href="/nticket") Nuevo Ticket 
+        li
+          a(href="/nfactura")  Generar Factura
+        li
+          a(href="/npago") Pago de Factura
 
-      h2 Altas de Rutas
-      p.title_201113797 ingresos
-      | Origen: 
-      input(type='text', name='fname')
-      br
-      | Destino: 
-      input(type='text', name='lname')
-      br
-      input.boton_azul_201113797(type='submit', value='Agregar', onclick="href='pagina2'")
 
-      h2 Bajas de Rutas
-      p.title_201113797 recorte
-      | id ruta: 
-      input(type='text', name='fname')
-      br
-      input.boton_azul_201113797(type='submit', value='Eliminar', onclick="href='pagina2'")
+      
+      form(action="reservacion", method="POST")
+        br
+        br
+        p.title_201113797 Nueva Reservacion
+        | Pasajero: 
+        input(type='text', name='fname')
+        br
+        br
+        | Fecha: 
+        input(type='text', name='lname')
+        br
+        br
+        input.boton_azul_201113797( type='submit',name='ingreso', value='Agregar')
 
-      h2 Medias de Rutas
-      p.title_201113797 modificacion
-      | id Ruta: 
-      input(type='text', name='fname')
-      br
-      | id Viaje: 
-      input(type='text', name='lname')
-      br
-      input.boton_azul_201113797(type='submit', value='Guardar', onclick="href='pagina2'")
     footer by Andrea 
     
 

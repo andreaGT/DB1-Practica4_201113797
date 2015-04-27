@@ -33,32 +33,30 @@ html
       nav
       ul.menu_201113797
         li
-          a(href="/abc") Altas
-
+          a(href="/reservacion") Reservacion  de ticket
         li
-          a(href="/bca") bajas
-
+          a(href="/nticket") Nuevo Ticket 
         li
-          a(href="/cba") medias
+          a(href="/nfactura")  Generar Factura
+        li
+          a(href="/npago") Pago de Factura
 
-      br
-      h2 Altas de Buses
-      form(action="abc", method="POST")
-        p.title_201113797 ingresos
-        | Tipo de Bus: 
+
+      
+      form(action="npago", method="POST")
+        br
+        br
+        p.title_201113797 Pago de Ticket
+        | id ticket: 
         input(type='text', name='fname')
         br
         br
-        | Conductor: 
+        | id Factura: 
         input(type='text', name='lname')
-        br
-        br
-        | Capacidad: 
-        input(type='text', name='cname')
         br
         br
         input.boton_azul_201113797( type='submit',name='ingreso', value='Agregar')
 
-    script.
-      $("#ingreso").click(function(){});
+    footer by Andrea 
+    
 

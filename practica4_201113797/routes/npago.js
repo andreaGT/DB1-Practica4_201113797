@@ -17,7 +17,7 @@ router.post('/', function(req, res) {
 	var conString = "pg://postgres:123@localhost:5432/Practica4_db1";
     pg.connect(conString, function(err, client, done) {
         
-       client.query("INSERT INTO \"RESERVACION\"(\"PASAJERO_idPASAJERO\",\"FECHA\") values("+data.text+", '"+data.complete+"')", 
+       client.query("UPDATE \"TICKET\" SET \"FACTURA_idFACTURA\" = "+data.complete+" WHERE \"idTICKET\" ="+data.text1, 
             function(err, result) {
                 if (err) {
                     console.log(err+"1");

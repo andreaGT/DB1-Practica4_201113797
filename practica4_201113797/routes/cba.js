@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('reservacion', { title: 'Bus Velocity' });
+  res.render('cba', { title: 'Bus Velocity' });
 });
 
 router.post('/', function(req, res) {
@@ -11,24 +12,29 @@ router.post('/', function(req, res) {
     var results = [];
 
     // Grab data from http request
-    var data = {text: req.body.fname, complete: req.body.lname, capacidad:req.body.cname,text1: req.body.fname1, complete1: req.body.lname1, capacidad1:req.body.cname1, elim: req.body.idel, id: req.body.lt1};
+    var data = {text1: req.body.fname1, complete1: req.body.cond, capacidad1:req.body.cname1, id: req.body.lt1, dd: req.body.lname1};
+    
     // Get a Postgres client from the connection pool
     var pg = require('pg');
 	var conString = "pg://postgres:123@localhost:5432/Practica4_db1";
     pg.connect(conString, function(err, client, done) {
         
-       client.query("INSERT INTO \"RESERVACION\"(\"PASAJERO_idPASAJERO\",\"FECHA\") values("+data.text+", '"+data.complete+"')", 
+    try{
+        
+       client.query("UPDATE \"BUS\" SET \"TIPO_BUS_idTIPO_BUS\" = "+data.id+", \"CONDUCTOR\" = '"+data.dd+"', \"CAPACIDAD\" = "+data.capacidad1+" WHERE \"idBUS\" ="+data.text1, 
             function(err, result) {
                 if (err) {
-                    console.log(err+"1");
+                    console.log(err +"3");
                 } 
 
               
                     client.end();
-            });
-    
+            }); 
+    }catch (err){
+        console.log(err+"3.1")
+    }
 	});
-	res.render('reservacion', { title: 'Bus Velocity' });
+	res.render('cba', { title: 'Bus Velocity' });
 });
 
 module.exports = router;

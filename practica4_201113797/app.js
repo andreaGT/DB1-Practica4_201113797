@@ -8,9 +8,18 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var abc = require('./routes/abc');
+var cba = require('./routes/cba');
+var bca = require('./routes/bca');
 var reservacion = require('./routes/reservacion');
 var reporte = require('./routes/reporte');
 var help = require('./routes/help');
+var nruta = require('./routes/nruta');
+var nviaje = require('./routes/nviaje');
+var nviajes = require('./routes/nviajes');
+var nbuses = require('./routes/nbuses');
+var nticket = require('./routes/nticket');
+//var npago = require('./routes/npago');
+var nfactura = require('./routes/nfactura');
 
 var pg = require('pg');
 
@@ -66,9 +75,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/ABC', abc);
+app.use('/bca', bca);
+app.use('/cba', cba);
 app.use('/reservacion', reservacion);
 app.use('/reporte', reporte);
 app.use('/help', help);
+app.use('/nruta', nruta);
+app.use('/nviajes', nviajes);
+app.use('/nviaje', nviaje);
+app.use('/nbuses', nbuses);
+//app.use('/npago', npago);
+app.use('/nfactura', nfactura);
+app.use('/nticket', nticket);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
