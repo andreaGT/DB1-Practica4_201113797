@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('reservacion', { title: 'Bus Velocity' });
+  res.render('npago', { title: 'Bus Velocity' });
 });
 
 router.post('/', function(req, res) {
@@ -17,7 +17,7 @@ router.post('/', function(req, res) {
 	var conString = "pg://postgres:123@localhost:5432/Practica4_db1";
     pg.connect(conString, function(err, client, done) {
         
-       client.query("UPDATE \"TICKET\" SET \"FACTURA_idFACTURA\" = "+data.complete+" WHERE \"idTICKET\" ="+data.text1, 
+       client.query("UPDATE \"TICKET\" SET \"FACTURA_idFACTURA\" = "+data.complete+" WHERE \"idTICKET\" ="+data.text, 
             function(err, result) {
                 if (err) {
                     console.log(err+"1");
@@ -28,7 +28,7 @@ router.post('/', function(req, res) {
             });
     
 	});
-	res.render('reservacion', { title: 'Bus Velocity' });
+	res.render('npago', { title: 'Bus Velocity' });
 });
 
 module.exports = router;

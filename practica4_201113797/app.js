@@ -18,7 +18,7 @@ var nviaje = require('./routes/nviaje');
 var nviajes = require('./routes/nviajes');
 var nbuses = require('./routes/nbuses');
 var nticket = require('./routes/nticket');
-//var npago = require('./routes/npago');
+var npago = require('./routes/npago');
 var nfactura = require('./routes/nfactura');
 
 var pg = require('pg');
@@ -84,7 +84,7 @@ app.use('/nruta', nruta);
 app.use('/nviajes', nviajes);
 app.use('/nviaje', nviaje);
 app.use('/nbuses', nbuses);
-//app.use('/npago', npago);
+app.use('/npago', npago);
 app.use('/nfactura', nfactura);
 app.use('/nticket', nticket);
 // catch 404 and forward to error handler
